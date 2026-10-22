@@ -1,0 +1,62 @@
+device: cuda
+seed: 10
+clip_version: ViT-B/32
+mano_path: data/mano
+pointnet_checkpoint: checkpoints/arctic/pointfeat.pth
+output_dir: outputs/arctic
+
+dataset:
+  name: arctic
+  data_path: data/arctic/data.npz
+  object_path: data/arctic/obj.pkl
+  text_path: data/arctic/text.json
+  stats_path: data/arctic/dmap_stats.npz
+  balance_weights_path: data/arctic/balance_weights.pkl
+  max_nframes: 64
+  random_start: false
+  flat_hand: false
+
+model:
+  obj_nfeats: 10
+  latent_dim: 2048
+  ff_size: 4096
+  num_layers: 8
+  num_heads: 4
+  dropout: 0.1
+
+diffusion:
+  steps: 1000
+  schedule: cosine
+  beta_start: 0.0001
+  beta_end: 0.02
+
+train:
+  batch_size: 64
+  num_workers: 2
+  max_steps: 222250
+  lr: 0.00005
+  warmup_steps: 1500
+  weight_decay: 0.01
+  gradient_clip: 1.0
+  dmap_dropout: 0.1
+  log_every: 50
+  save_every: 7500
+  resume: null
+  loss_weights:
+    lhand: 1.0
+    rhand: 1.0
+    object: 1.0
+    lhand_dmap: 1.0
+    rhand_dmap: 1.0
+
+sampling:
+  steps: 100
+  eta: 0.0
+  cfg_scale: 1.0
+  guidance:
+    enabled: true
+    start_ratio: 1.0
+    weight: 0.05
+    epsilon: 0.005
+    threshold: null
+    normalize_gradient: true

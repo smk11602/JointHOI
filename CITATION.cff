@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+title: "JointHOI: Jointly Generating Contact Maps Enhances Hand-Object Interaction Generation"
+message: "If you use this code, please cite the JointHOI paper."
+type: software
+authors:
+  - family-names: Song
+    given-names: Mingyeong
+  - family-names: Cho
+    given-names: Jungbin
+  - family-names: Kim
+    given-names: Jisoo
+  - family-names: Bal
+    given-names: Ananya
+  - family-names: Sharma
+    given-names: Kartik
+  - family-names: Yu
+    given-names: Youngjae
+  - family-names: Jeni
+    given-names: Laszlo A.
+  - family-names: Noh
+    given-names: Junhyug
+version: 0.1.0
+date-released: 2026-07-02
+repository-code: "https://github.com/smk11602/JointHOI"
+url: "https://smk11602.github.io/JointHOI/"
+preferred-citation:
+  type: conference-paper
+  title: "JointHOI: Jointly Generating Contact Maps Enhances Hand-Object Interaction Generation"
+  authors:
+    - family-names: Song
+      given-names: Mingyeong
+    - family-names: Cho
+      given-names: Jungbin
+    - family-names: Kim
+      given-names: Jisoo
+    - family-names: Bal
+      given-names: Ananya
+    - family-names: Sharma
+      given-names: Kartik
+    - family-names: Yu
+      given-names: Youngjae
+    - family-names: Jeni
+      given-names: Laszlo A.
+    - family-names: Noh
+      given-names: Junhyug
+  collection-title: "European Conference on Computer Vision (ECCV)"
+  year: 2026

@@ -1,0 +1,9 @@
+numpy==1.24.4
+omegaconf==2.3.0
+smplx==0.1.28
+tqdm==4.65.2
+chumpy==0.70
+scipy>=1.9
+git+https://github.com/openai/CLIP.git
+
+# Install the PyTorch build matching your CUDA version separately.

@@ -1,0 +1,62 @@
+device: cuda
+seed: 10
+clip_version: ViT-B/32
+mano_path: data/mano
+pointnet_checkpoint: checkpoints/grab/pointfeat.pth
+output_dir: outputs/grab
+
+dataset:
+  name: grab
+  data_path: data/grab/data.npz
+  object_path: data/grab/obj.pkl
+  text_path: data/grab/text.json
+  stats_path: data/grab/dmap_stats.npz
+  balance_weights_path: data/grab/balance_weights.pkl
+  max_nframes: 196
+  random_start: false
+  flat_hand: true
+
+model:
+  obj_nfeats: 9
+  latent_dim: 2048
+  ff_size: 4096
+  num_layers: 8
+  num_heads: 4
+  dropout: 0.1
+
+diffusion:
+  steps: 1000
+  schedule: cosine
+  beta_start: 0.0001
+  beta_end: 0.02
+
+train:
+  batch_size: 128
+  num_workers: 2
+  max_steps: 85500
+  lr: 0.00005
+  warmup_steps: 1500
+  weight_decay: 0.01
+  gradient_clip: 1.0
+  dmap_dropout: 0.1
+  log_every: 50
+  save_every: 7500
+  resume: null
+  loss_weights:
+    lhand: 1.0
+    rhand: 1.0
+    object: 1.0
+    lhand_dmap: 1.0
+    rhand_dmap: 1.0
+
+sampling:
+  steps: 100
+  eta: 0.0
+  cfg_scale: 1.0
+  guidance:
+    enabled: true
+    start_ratio: 1.0
+    weight: 0.05
+    epsilon: 0.005
+    threshold: null
+    normalize_gradient: true
