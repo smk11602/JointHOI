@@ -2,7 +2,7 @@
 
 Official research code for **JointHOI: Jointly Generating Contact Maps Enhances Hand–Object Interaction Generation** (**ECCV 2026**).
 
-Mingyeong Song, Jungbin Cho, Jisoo Kim, Ananya Bal, Kartik Sharma, Youngjae Yu, Laszlo A. Jeni, and Junhyug Noh
+![JointHOI teaser](teaser.png)
 
 JointHOI is a single-stage diffusion model that jointly generates bimanual hand motion, object motion, and per-hand dynamic distance maps. The distance maps are treated as an inner modality rather than an external contact-map condition. During sampling, Contact Inner Guidance (CIG) uses a Log-L1 consistency energy between generated distance maps and distances implied by the generated geometry.
 
